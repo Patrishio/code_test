@@ -1,17 +1,21 @@
 - provide(:title, 'Home')
 .hero-unit  
+  %h4 Company details
+  %p
+    Company: make it cheaper
+    %br/
+    www.makeitcheaper.com
   %h4 User form
   = form_tag submit_path, :method => 'get', id: "search_invoice" do
     %form.form-horizontal    
       .form-group
-        = text_field_tag :name, nil, placeholder: "Name", class: "form-control"      
+        = text_field_tag :name, nil, required: true, maxlength: 100, placeholder: "Name", class: "form-control"      
       .form-group
-        = text_field_tag :business_name, nil, placeholder: "Business name", class: "form-control"
+        = text_field_tag :business_name, nil, required: true, maxlength: 100, placeholder: "Business name", class: "form-control"
       .form-group
-        = text_field_tag :telephone_number, nil, placeholder: "Telephone number", class: "form-control"
+        = text_field_tag :telephone_number, nil, required: true, maxlength: 13, placeholder: "Telephone number", class: "form-control"
       .form-group
-        = text_field_tag :email, nil, placeholder: "Email", class: "form-control"
+        = text_field_tag :email, nil, required: true, maxlength: 80, placeholder: "Email", class: "form-control"
       .form-group
-        = button_tag(type: "submit", class: "btn btn-info custom2") do 
-          <i class="glyphicon glyphicon-search"></i> 
+        = button_tag(type: "submit", class: "btn btn-info") do           
           Send
