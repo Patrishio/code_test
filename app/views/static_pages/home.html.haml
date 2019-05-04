@@ -1,0 +1,17 @@
+- provide(:title, 'Home')
+.hero-unit  
+  %h4 User form
+  = form_tag submit_path, :method => 'get', id: "search_invoice" do
+    %form.form-horizontal    
+      .form-group
+        = text_field_tag :name, nil, placeholder: "Name", class: "form-control"      
+      .form-group
+        = text_field_tag :business_name, nil, placeholder: "Business name", class: "form-control"
+      .form-group
+        = text_field_tag :telephone_number, nil, placeholder: "Telephone number", class: "form-control"
+      .form-group
+        = text_field_tag :email, nil, placeholder: "Email", class: "form-control"
+      .form-group
+        = button_tag(type: "submit", class: "btn btn-info custom2") do 
+          <i class="glyphicon glyphicon-search"></i> 
+          Send
