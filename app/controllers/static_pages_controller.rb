@@ -15,8 +15,8 @@ class StaticPagesController < ApplicationController
 
     response = sr.send
     
-    respond_to do |format|      
-      if response.code == "200"
+    respond_to do |format|              
+      if response.code == "201" || response.code == "200"
         flash.now[:info] = "Thank for your request. it was processed successfully."
         format.html { render :home }
       else

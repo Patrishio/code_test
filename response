@@ -1,0 +1,25 @@
+
+[1mFrom:[0m /home/patrishio/Projects/code_test/app/controllers/static_pages_controller.rb @ line 20 StaticPagesController#submit:
+
+     [1;34m8[0m: [32mdef[0m [1;34msubmit[0m    
+     [1;34m9[0m:   sr = [1;34;4mSendsRequest[0m.new(
+    [1;34m10[0m:     params[[33m:name[0m],
+    [1;34m11[0m:     params[[33m:business_name[0m],
+    [1;34m12[0m:     params[[33m:telephone_number[0m],
+    [1;34m13[0m:     params[[33m:email[0m]
+    [1;34m14[0m:   )
+    [1;34m15[0m: 
+    [1;34m16[0m:   response = sr.send
+    [1;34m17[0m: 
+    [1;34m18[0m:   respond_to [32mdo[0m |format|  
+    [1;34m19[0m:     binding.pry    
+ => [1;34m20[0m:     [32mif[0m response.code == [31m[1;31m"[0m[31m200[1;31m"[0m[31m[0m
+    [1;34m21[0m:       flash.now[[33m:info[0m] = [31m[1;31m"[0m[31mThank for your request. it was processed successfully.[1;31m"[0m[31m[0m
+    [1;34m22[0m:       format.html { render [33m:home[0m }
+    [1;34m23[0m:     [32melse[0m
+    [1;34m24[0m:       flash.now[[33m:danger[0m] = [31m[1;31m"[0m[31mPlease correct submitted data. Details: #{sr.errors}[0m[31m[1;31m"[0m[31m[0m
+    [1;34m25[0m:       format.html { render [33m:home[0m }
+    [1;34m26[0m:     [32mend[0m
+    [1;34m27[0m:   [32mend[0m    
+    [1;34m28[0m: [32mend[0m
+
