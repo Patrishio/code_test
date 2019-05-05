@@ -1,10 +1,11 @@
 class StaticPagesController < ApplicationController
   
+  # ------------------------------------
   def home
   end
 
-  def submit
-    binding.pry
+  # ------------------------------------
+  def submit    
     sr = SendsRequest.new(
       params[:name],
       params[:business_name],

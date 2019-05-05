@@ -21,7 +21,7 @@ class SendsRequest
     request = Net::HTTP::Post.new(uri.request_uri)    
     request['Content-Type'] = "multipart/form-data"
     request.set_form self.generate_form, 'multipart/form-data'
-    response = http.request(request)
+    response = http.request(request)    
     @response = response
   end
 
