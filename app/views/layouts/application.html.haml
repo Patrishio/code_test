@@ -13,4 +13,6 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   %body
     .container
+      - flash.each do |message_type, message|
+        %div{:class => "alert alert-#{message_type}"}= message
       = yield
