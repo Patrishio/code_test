@@ -11,6 +11,16 @@ class SendsRequest
     @email = email
   end
 
+  def send
+    uri = URI('http://mic-leads.dev-test.makeiteasy.com/api/v1/create')
+    http = Net::HTTP.new(uri.host, uri.port)    
+    request = Net::HTTP::Post.new(uri.request_uri)    
+    request['Content-Type'] = "multipart/form-data"
+    request.set_form self.generate_form, 'multipart/form-data'
+    response = http.request(request)
+    # response  
+  end
+
   def generate_form
     [
       ['access_token', '58c26800e36979498609ecc7430ec7ca'],

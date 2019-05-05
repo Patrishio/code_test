@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe "Sends request" do
+
   let(:action)  { 
     SendsRequest.new(
     "Anthony Hopkins",
@@ -9,6 +10,7 @@ describe "Sends request" do
     "anthony@chickenendbean.com") 
   }
   
+  # --------------------------------------
   it "generates form request" do
     expect(action.generate_form).to eq(
       [
@@ -24,4 +26,23 @@ describe "Sends request" do
   
     )
   end
+
+  # --------------------------------------
+  it "sends valid requests" do   
+    
+    stub_request(:post, "http://mic-leads.dev-test.makeiteasy.com/api/v1/create").
+      with(
+        headers: {
+      'Accept'=>'*/*',
+      'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+      'Content-Type'=>'multipart/form-data',
+      'User-Agent'=>'Ruby'
+        }).
+    to_return(status: 200, body: "", headers: {})
+
+  
+    response = action.send 
+    expect(response.code).to eq("200")   
+  end
+
 end
